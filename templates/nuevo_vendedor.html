@@ -1,0 +1,61 @@
+
+
+{% extends "esqueleto.html" %}
+
+
+{% block contenido %}
+<head>
+  <link rel="stylesheet" href="/estilos">
+    </head>
+<h1>Nuevo vendedor</h1>
+
+<form id="frmNuevoVendedor"
+        method="post"
+        action="/vendedores/nuevo?itVend={{ clave_item }}"
+        onsubmit="return check()">
+<p>
+<label for="edNombre">Nombre</label>
+<input type="text" id="edNombre" name="edNombre"
+placeholder="Nombre vendedor..."/>
+</p>
+
+<p>
+<label for="edDir" > Direccion</label>
+<input type="text" id="edDir" name="edDir"
+placeholder="Direccion..."/>
+</p>
+
+<p>
+<label for="edPedidoMax">Maximo numero de pedidos</label>
+<input type="number" id="edPedidoMax" name="edPedidoMax"
+placeholder="Maximo numero de pedidos..."/>
+</p>
+
+<p>
+<label for="edTelefono">Telefono</label>
+<input type="text" id="edTelefono" name="edTelefono"
+placeholder="número de telefono del vendedor..."/>
+</p>
+
+<p><input type="submit" value="Crear"></p>
+</form>
+
+<script>
+function check(){
+const edNombre = document.getElementById("edNombre");
+const edDir = document.getElementById("edDir");
+const edPedidoMax = document.getElementById("edPedidoMax");
+const edTelefono = document.getElementById("edTelefono");
+
+return( edNombre.value.trim().length > 0
+&& edDir.value.trim().length > 0
+&& edPedidoMax.value.trim().length > 0
+&& edTelefono.value.trim().length > 0
+)
+}
+
+</script>
+
+{% endblock %}
+
+

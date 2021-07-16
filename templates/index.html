@@ -1,0 +1,73 @@
+<!-- extiende del esqueleto -->
+
+{% extends "esqueleto.html" %}
+
+{% block contenido %}
+
+    <head>
+  <link rel="stylesheet" href="/estilos">
+    </head>
+
+
+
+{% if usr %}
+    <br>
+    <p class="OpLogout">Puedes hacer <a href="{{ url_usr }}">logout</a> si lo desas</p>
+
+
+
+
+    <h1>Bienvenido {{ usr }}</h1>
+
+
+        <!-- Despliegue del inventario de items  -->
+        <h2>Items </h2>
+        {% if items.count() > 0 %}
+            {% for item in items %}
+             {% include "entrada_item.html" %}
+                (<a class="eliminar" href="/items/elimina?it={{ item.key.urlsafe() }}">X</a>)
+                (<a href="/vendedores/lista?itVend={{ item.key.urlsafe() }}">vendedores</a>)
+
+                <p></p>
+            {% endfor %}
+        {% else %}
+            <p><b>No hay items registrados. </b></p>
+        {% endif %}
+
+        <p>
+            <!-- redirije hacia " handlers.items.nuevo.app" -->
+        <a href="/items/nuevo"/>Nuevo item</a><br>
+
+            <br>
+            <!-- redirije hacia "handlers.main.app" -->
+
+    </p>
+
+
+{% else %}
+<!-- login si no hay usaurio -->
+    <br>
+                !Haz <a href="{{ url_usr }}">login</a> para utilizar la aplicacion
+    <p></p>
+{% endif %}
+
+    <!--muestra la pagina si hay usuario-->
+    <!-- loby de usuarios -->
+
+<body>
+
+    <h1>Lobby de registro de los ususarios  </h1>
+
+        {% if invitados.count() > 0 %}
+            {% for invitado in invitados %}
+                <li> {{ invitado.hora }} - {{ invitado.nombre }} </li>
+            {% endfor %}
+        {% else %}
+            <p><b>No hay invitados </b></p>
+        {% endif %}
+
+
+
+</body>
+
+{% endblock %}

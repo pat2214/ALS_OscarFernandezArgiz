@@ -1,0 +1,51 @@
+
+
+{% extends "esqueleto.html" %}
+
+
+{% block contenido %}
+<head>
+  <link rel="stylesheet" href="/estilos">
+    </head>
+<h1>Nuevo item </h1>
+
+<form id="frmNuevoItem"
+method="post"
+action="/items/nuevo"
+onsubmit="return check()">
+<p>
+<label for="edNombre">Nombre</label>
+<input type="text" id="edNombre" name="edNombre" placeholder="nombre..."/>
+</p>
+
+<p>
+<label for="edNumero" > Numero de serie</label>
+<input type="text" id="edNumero" name="edNumero"
+placeholder="Numero de serie"
+/>
+</p>
+
+<p>
+<label for="edCant" > Cantidad </label>
+<input type="number" id="edCant" name="edCant"
+placeholder="Cantidad"
+/>
+</p>
+
+<p><input type="submit" value="Crear"></p>
+</form>
+
+<script>
+function check(){
+const edNombre = document.getElementById("edNombre");
+const edNumero = document.getElementById("edNumero");
+const edCant = document.getElementById("edCant");
+
+return( edNombre.value.trim().length > 0
+&& edNumero.value.trim().length > 0 && edCant.value.trim().length > 0)
+}
+
+</script>
+
+{% endblock %}
+

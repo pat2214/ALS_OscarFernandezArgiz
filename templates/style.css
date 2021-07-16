@@ -1,0 +1,33 @@
+body {
+  background-color: #e5e269;
+  display: block;
+}
+h1 {
+  color: #806f3c;
+    display: block;
+}
+p {
+  color: #531d1d;
+}
+mark {
+  background-color: #c9c3c3;
+  color: black;
+}
+.eliminar {
+  color: red;
+}
+a {
+  color: #551589;
+}
+.item{
+  font-family: "Lucida Console", Courier, monospace;
+}
+input{
+  border:none;
+}
+.OpLogout{
+  position: absolute;
+  top: -10px;
+  right: 20px;
+
+}

@@ -1,0 +1,28 @@
+{% extends "esqueleto.html" %}
+{% block contenido %}
+<head>
+  <link rel="stylesheet" href="/estilos">
+    </head>
+
+<h4 class="item"> <mark> {{ item.nombre }} [ID :    {{ item.numero }} ] </mark></h4>
+
+ <h2>VENDEDORES:</h2>
+<p>
+
+{% if vendedores.count() > 0 %}
+    {% for vendedor in vendedores %}
+    {% include "entrada_vendedor.html" %}
+    <p></p>
+    {% endfor %}
+{% else %}
+    <p><b>No hay vendedores registrados. </b></p>
+{% endif %}
+
+<p></p>
+
+
+<a href="/vendedores/nuevo?itVend={{ item.key.urlsafe() }}"/>Nuevo vendedor</a><br>
+
+    <br>
+    <a href="/"/>INICIO</a>
+{% endblock %}
